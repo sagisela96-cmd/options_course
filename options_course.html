@@ -1,0 +1,1159 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>קורס מסחר באופציות | SAGI TRADING PRO</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&display=swap');
+
+  :root {
+    --navy:   #0B1628;
+    --navy2:  #142038;
+    --gold:   #C9952A;
+    --gold2:  #E8B84B;
+    --cream:  #F5F0E8;
+    --warm:   #EDE6D9;
+    --white:  #FFFFFF;
+    --text:   #1C2B3A;
+    --mid:    #4A5568;
+    --light:  #8896A7;
+    --green:  #0F5C2E;
+    --greenbg:#E8F5EE;
+    --red:    #8B1A1A;
+    --redbg:  #FDF0F0;
+    --blue:   #1A3A6B;
+    --bluebg: #EEF3FB;
+    --border: #D8D0C4;
+    --shadow: 0 4px 24px rgba(11,22,40,0.10);
+    --r:      8px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Heebo', sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    font-size: 16px;
+    line-height: 1.75;
+  }
+
+  /* ── HEADER ── */
+  .site-header {
+    background: var(--navy);
+    padding: 0 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 2px solid var(--gold);
+  }
+  .logo { color: var(--gold); font-weight: 800; font-size: 18px; letter-spacing: 0.5px; }
+  .logo span { color: var(--white); font-weight: 300; }
+  .header-nav { display: flex; gap: 6px; }
+  .header-nav a {
+    color: rgba(255,255,255,0.7);
+    text-decoration: none;
+    font-size: 13px;
+    padding: 6px 14px;
+    border-radius: 20px;
+    transition: all .2s;
+  }
+  .header-nav a:hover, .header-nav a.active {
+    background: rgba(201,149,42,0.18);
+    color: var(--gold2);
+  }
+
+  /* ── HERO ── */
+  .hero {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy2) 60%, #1a2d4a 100%);
+    padding: 80px 40px 70px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='30' cy='30' r='1' fill='rgba(201,149,42,0.12)'/%3E%3C/svg%3E") repeat;
+    pointer-events: none;
+  }
+  .hero-tag {
+    display: inline-block;
+    background: rgba(201,149,42,0.15);
+    border: 1px solid rgba(201,149,42,0.4);
+    color: var(--gold2);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 5px 16px;
+    border-radius: 20px;
+    margin-bottom: 22px;
+  }
+  .hero h1 {
+    font-size: clamp(32px, 5vw, 52px);
+    font-weight: 900;
+    color: var(--white);
+    line-height: 1.15;
+    margin-bottom: 18px;
+  }
+  .hero h1 span { color: var(--gold2); }
+  .hero p {
+    font-size: 17px;
+    color: rgba(255,255,255,0.72);
+    max-width: 600px;
+    margin: 0 auto 36px;
+    line-height: 1.7;
+  }
+  .hero-stats {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+  }
+  .hero-stat { text-align: center; }
+  .hero-stat .val { font-size: 28px; font-weight: 800; color: var(--gold2); display: block; }
+  .hero-stat .lbl { font-size: 12px; color: rgba(255,255,255,0.55); }
+
+  /* ── MAIN LAYOUT ── */
+  .course-wrap {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    gap: 32px;
+    padding: 40px 24px 80px;
+    align-items: start;
+  }
+
+  /* ── SIDEBAR ── */
+  .sidebar {
+    position: sticky;
+    top: 84px;
+    background: var(--white);
+    border-radius: var(--r);
+    border: 1px solid var(--border);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+  }
+  .sidebar-title {
+    background: var(--navy);
+    color: var(--gold2);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 12px 16px;
+  }
+  .sidebar-nav { list-style: none; }
+  .sidebar-nav li a {
+    display: block;
+    padding: 10px 16px;
+    font-size: 13px;
+    color: var(--mid);
+    text-decoration: none;
+    border-bottom: 1px solid #f0ece5;
+    transition: all .15s;
+    border-right: 3px solid transparent;
+  }
+  .sidebar-nav li a:hover { background: var(--warm); color: var(--text); border-right-color: var(--gold); }
+  .sidebar-nav li a.active { background: var(--warm); color: var(--navy); font-weight: 600; border-right-color: var(--gold); }
+  .sidebar-nav li a .chap-num { color: var(--gold); font-weight: 700; margin-left: 6px; font-size: 11px; }
+  .sidebar-progress {
+    padding: 14px 16px;
+    border-top: 1px solid var(--border);
+  }
+  .progress-bar-wrap { background: var(--warm); border-radius: 99px; height: 6px; margin-top: 6px; }
+  .progress-bar { height: 6px; background: var(--gold); border-radius: 99px; width: 0%; transition: width .4s; }
+  .progress-label { font-size: 11px; color: var(--light); margin-bottom: 4px; }
+
+  /* ── MAIN CONTENT ── */
+  .main-content { min-width: 0; }
+
+  /* ── CHAPTER SECTIONS ── */
+  .chapter { display: none; }
+  .chapter.active { display: block; }
+
+  .chapter-header {
+    background: var(--navy);
+    border-radius: var(--r) var(--r) 0 0;
+    padding: 28px 32px 24px;
+    margin-bottom: 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .chapter-header::after {
+    content: '';
+    position: absolute;
+    bottom: 0; right: 0;
+    width: 120px; height: 120px;
+    background: rgba(201,149,42,0.07);
+    border-radius: 50%;
+    transform: translate(30px, 40px);
+  }
+  .chapter-eyebrow {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 8px;
+  }
+  .chapter-header h2 {
+    font-size: 26px;
+    font-weight: 800;
+    color: var(--white);
+    line-height: 1.25;
+    margin-bottom: 8px;
+  }
+  .chapter-header p {
+    font-size: 14px;
+    color: rgba(255,255,255,0.6);
+    max-width: 560px;
+  }
+
+  .chapter-body {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-top: none;
+    border-radius: 0 0 var(--r) var(--r);
+    padding: 36px 32px;
+    box-shadow: var(--shadow);
+  }
+
+  /* ── SECTION HEADINGS ── */
+  .section-title {
+    font-size: 19px;
+    font-weight: 800;
+    color: var(--navy);
+    margin: 32px 0 10px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--gold);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .section-title:first-child { margin-top: 0; }
+  .section-title .icon { font-size: 20px; }
+
+  .sub-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--navy);
+    margin: 22px 0 8px;
+  }
+
+  p.prose {
+    color: var(--mid);
+    font-size: 15px;
+    line-height: 1.8;
+    margin-bottom: 14px;
+  }
+
+  /* ── CALLOUT BOXES ── */
+  .box {
+    border-radius: var(--r);
+    padding: 16px 20px;
+    margin: 18px 0;
+    font-size: 14px;
+    line-height: 1.7;
+    border-right: 4px solid;
+  }
+  .box-info    { background: var(--bluebg);  color: var(--blue);  border-color: #3B82F6; }
+  .box-warn    { background: #FFFBEB;        color: #78350F;      border-color: var(--gold); }
+  .box-danger  { background: var(--redbg);   color: var(--red);   border-color: #DC2626; }
+  .box-success { background: var(--greenbg); color: var(--green); border-color: #16A34A; }
+  .box-dark    { background: var(--navy); color: var(--gold2); border-color: var(--gold); }
+  .box strong  { font-weight: 700; }
+
+  /* ── BULLETS ── */
+  .bullet-list { list-style: none; margin: 10px 0 18px; }
+  .bullet-list li {
+    padding: 7px 0 7px 0;
+    padding-right: 24px;
+    font-size: 14px;
+    color: var(--mid);
+    border-bottom: 1px solid #f0ece5;
+    position: relative;
+    line-height: 1.65;
+  }
+  .bullet-list li::before {
+    content: '◆';
+    position: absolute;
+    right: 0;
+    color: var(--gold);
+    font-size: 10px;
+    top: 11px;
+  }
+  .bullet-list li strong { color: var(--text); font-weight: 700; }
+  .bullet-list li:last-child { border-bottom: none; }
+
+  /* ── TWO-COLUMN COMPARE ── */
+  .compare {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin: 18px 0;
+  }
+  .compare-card {
+    border-radius: var(--r);
+    padding: 18px;
+    border: 1px solid var(--border);
+  }
+  .compare-card.green { background: var(--greenbg); border-color: #86EFAC; }
+  .compare-card.red   { background: var(--redbg);   border-color: #FCA5A5; }
+  .compare-card h4 { font-size: 14px; font-weight: 700; margin-bottom: 10px; }
+  .compare-card.green h4 { color: var(--green); }
+  .compare-card.red   h4 { color: var(--red); }
+  .compare-card ul { list-style: none; }
+  .compare-card ul li {
+    font-size: 13px;
+    color: var(--mid);
+    padding: 5px 0;
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+    line-height: 1.55;
+  }
+  .compare-card ul li:last-child { border-bottom: none; }
+
+  /* ── SCENARIO TABLE ── */
+  .scenario {
+    background: var(--cream);
+    border-radius: var(--r);
+    overflow: hidden;
+    border: 1px solid var(--border);
+    margin: 16px 0 24px;
+  }
+  .scenario-title {
+    background: var(--warm);
+    padding: 10px 16px;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--light);
+    letter-spacing: 0.5px;
+    border-bottom: 1px solid var(--border);
+  }
+  .scenario-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-bottom: 1px solid var(--border);
+  }
+  .scenario-row:last-child { border-bottom: none; }
+  .scenario-row .s-label {
+    padding: 9px 16px;
+    font-size: 13px;
+    color: var(--light);
+    border-left: 1px solid var(--border);
+  }
+  .scenario-row .s-val {
+    padding: 9px 16px;
+    font-size: 13px;
+    font-weight: 600;
+  }
+  .s-val.up   { color: var(--green); }
+  .s-val.down { color: var(--red);   }
+  .s-val.flat { color: var(--mid);   }
+
+  /* ── STRATEGY CARDS ── */
+  .strat-card {
+    border: 1px solid var(--border);
+    border-radius: var(--r);
+    overflow: hidden;
+    margin: 28px 0;
+  }
+  .strat-header {
+    display: grid;
+    grid-template-columns: 56px 1fr auto;
+    align-items: center;
+    background: var(--navy);
+    padding: 16px 20px;
+    gap: 16px;
+    border-bottom: 2px solid var(--gold);
+  }
+  .strat-num {
+    font-size: 26px;
+    font-weight: 900;
+    color: var(--gold);
+    line-height: 1;
+  }
+  .strat-header-text h3 {
+    font-size: 16px;
+    font-weight: 800;
+    color: var(--white);
+    margin-bottom: 3px;
+  }
+  .strat-header-text p {
+    font-size: 12px;
+    color: rgba(255,255,255,0.5);
+  }
+  .strat-tag {
+    background: rgba(201,149,42,0.15);
+    border: 1px solid rgba(201,149,42,0.35);
+    color: var(--gold2);
+    font-size: 11px;
+    font-weight: 700;
+    padding: 4px 12px;
+    border-radius: 20px;
+    white-space: nowrap;
+  }
+  .strat-body { padding: 22px 24px; background: var(--white); }
+  .strat-body p.prose { margin-bottom: 10px; }
+  .strat-metrics {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin: 16px 0;
+  }
+  .metric {
+    background: var(--cream);
+    border-radius: 6px;
+    padding: 12px 14px;
+    text-align: center;
+    border: 1px solid var(--border);
+  }
+  .metric .m-val { font-size: 15px; font-weight: 800; display: block; margin-bottom: 2px; }
+  .metric .m-val.pos { color: var(--green); }
+  .metric .m-val.neg { color: var(--red); }
+  .metric .m-val.neu { color: var(--navy); }
+  .metric .m-label { font-size: 11px; color: var(--light); }
+
+  /* ── GREEKS TABLE ── */
+  .greeks-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+    margin: 16px 0;
+  }
+  .greek-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--r);
+    padding: 16px 18px;
+    border-top: 3px solid var(--gold);
+  }
+  .greek-name { font-size: 20px; font-weight: 900; color: var(--gold); margin-bottom: 4px; }
+  .greek-hebrew { font-size: 13px; color: var(--light); margin-bottom: 8px; }
+  .greek-desc { font-size: 13px; color: var(--mid); line-height: 1.65; }
+  .greek-example {
+    margin-top: 10px;
+    background: var(--cream);
+    border-radius: 5px;
+    padding: 8px 12px;
+    font-size: 12px;
+    color: var(--blue);
+    font-weight: 600;
+    border-right: 3px solid #93C5FD;
+  }
+
+  /* ── SUMMARY TABLE ── */
+  .summary-table { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 13px; }
+  .summary-table th {
+    background: var(--navy);
+    color: var(--white);
+    padding: 10px 12px;
+    font-weight: 700;
+    text-align: right;
+  }
+  .summary-table td { padding: 9px 12px; border-bottom: 1px solid #ede8e0; }
+  .summary-table tr:nth-child(even) td { background: var(--cream); }
+  .summary-table tr:hover td { background: var(--warm); }
+  .td-green { color: var(--green); font-weight: 700; }
+  .td-red   { color: var(--red);   font-weight: 700; }
+  .td-gold  { color: var(--gold);  font-weight: 700; }
+
+  /* ── NAVIGATION BUTTONS ── */
+  .chapter-nav {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 36px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+  }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 11px 24px;
+    border-radius: 6px;
+    font-family: 'Heebo', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    border: none;
+    transition: all .2s;
+    text-decoration: none;
+  }
+  .btn-primary { background: var(--navy); color: var(--gold2); }
+  .btn-primary:hover { background: var(--navy2); transform: translateY(-1px); }
+  .btn-ghost { background: transparent; color: var(--mid); border: 1px solid var(--border); }
+  .btn-ghost:hover { background: var(--warm); color: var(--text); }
+  .btn:disabled { opacity: 0.3; cursor: not-allowed; }
+
+  /* ── FOOTER ── */
+  .site-footer {
+    background: var(--navy);
+    color: rgba(255,255,255,0.45);
+    text-align: center;
+    padding: 22px;
+    font-size: 12px;
+    border-top: 1px solid rgba(201,149,42,0.25);
+  }
+  .site-footer span { color: var(--gold); font-weight: 700; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 780px) {
+    .course-wrap { grid-template-columns: 1fr; }
+    .sidebar { position: static; }
+    .compare { grid-template-columns: 1fr; }
+    .strat-metrics { grid-template-columns: repeat(2,1fr); }
+    .greeks-grid { grid-template-columns: 1fr; }
+    .strat-header { grid-template-columns: 40px 1fr; }
+    .strat-tag { display: none; }
+    .hero { padding: 50px 20px; }
+    .chapter-body { padding: 24px 18px; }
+    .header-nav { display: none; }
+    .site-header { padding: 0 20px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="logo">SAGI <span>TRADING PRO</span></div>
+  <nav class="header-nav">
+    <a href="#" class="active" onclick="showChapter(0,this)">מבוא</a>
+    <a href="#" onclick="showChapter(1,this)">פרק א</a>
+    <a href="#" onclick="showChapter(2,this)">פרק ב</a>
+    <a href="#" onclick="showChapter(3,this)">פרק ג</a>
+    <a href="#" onclick="showChapter(4,this)">פרק ד</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-tag">SAGI TRADING PRO</div>
+  <h1>קורס מסחר <span>באופציות</span></h1>
+  <p>מיסודות הבסיס ועד אסטרטגיות מתקדמות – עם דוגמאות מספריות מלאות לכל אסטרטגיה</p>
+  <div class="hero-stats">
+    <div class="hero-stat"><span class="val">5</span><span class="lbl">פרקים</span></div>
+    <div class="hero-stat"><span class="val">8</span><span class="lbl">אסטרטגיות</span></div>
+    <div class="hero-stat"><span class="val">30+</span><span class="lbl">דוגמאות</span></div>
+    <div class="hero-stat"><span class="val">4</span><span class="lbl">יווניות</span></div>
+  </div>
+</section>
+
+<!-- COURSE WRAP -->
+<div class="course-wrap">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sidebar-title">תוכן הקורס</div>
+    <ul class="sidebar-nav">
+      <li><a href="#" class="active" onclick="showChapter(0,this)"><span class="chap-num">00</span> מבוא – למה אופציות?</a></li>
+      <li><a href="#" onclick="showChapter(1,this)"><span class="chap-num">א</span> פירוק חוזה האופציה</a></li>
+      <li><a href="#" onclick="showChapter(2,this)"><span class="chap-num">ב</span> היווניות (Greeks)</a></li>
+      <li><a href="#" onclick="showChapter(3,this)"><span class="chap-num">ג</span> 8 אסטרטגיות מסחר</a></li>
+      <li><a href="#" onclick="showChapter(4,this)"><span class="chap-num">ד</span> ניהול סיכונים</a></li>
+    </ul>
+    <div class="sidebar-progress">
+      <div class="progress-label">התקדמות: <span id="prog-pct">0%</span></div>
+      <div class="progress-bar-wrap"><div class="progress-bar" id="prog-bar"></div></div>
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="main-content">
+
+    <!-- ═══════════════════════════════════════ -->
+    <!-- CHAPTER 0 – INTRO -->
+    <!-- ═══════════════════════════════════════ -->
+    <article class="chapter active" id="ch0">
+      <div class="chapter-header">
+        <div class="chapter-eyebrow">מבוא</div>
+        <h2>למה בכלל אופציות?</h2>
+        <p>גלה איך אופציות פותחות עולם של אפשרויות שמניות בלבד לא מאפשרות</p>
+      </div>
+      <div class="chapter-body">
+
+        <div class="section-title"><span class="icon">🎯</span> מה מגדיר אופציות?</div>
+        <p class="prose">שוק המניות הרגיל מאפשר רק שתי פעולות: לקנות מניה ולמכור מניה. אופציות פותחות עולם שלם של אפשרויות – מינוף מבוקר, גידור תיק, תזרים קבוע, ורווח גם בשוק שלא זז בכלל.</p>
+        <p class="prose">אופציה היא חוזה פיננסי בין שני צדדים. הקונה משלם פרמיה ומקבל <strong>זכות – לא חובה</strong> – לבצע עסקה. המוכר (הכותב) מקבל את הפרמיה ולוקח <strong>התחייבות</strong>. זוהי ההבחנה הבסיסית שמגדירה את כל הדינמיקה של שוק האופציות.</p>
+
+        <div class="section-title"><span class="icon">⚡</span> ארבעת השימושים המרכזיים</div>
+        <ul class="bullet-list">
+          <li><strong>מינוף כיוון:</strong> במקום לקנות מניה ב-$10,000, קונים Call ב-$300–500 ומקבלים חשיפה לאותה עלייה. הפסד מוגבל לפרמיה, רווח פוטנציאלי זהה.</li>
+          <li><strong>גידור תיק (Protective Put):</strong> בעל מניות שחושש מירידה קונה Put – ביטוח לתיק. אם המניה יורדת, ה-Put מפצה על ההפסד.</li>
+          <li><strong>תזרים קבוע:</strong> כתיבת Covered Call או Cash Secured Put מייצרת הכנסה חודשית קבועה על מניות שממילא מחזיקים.</li>
+          <li><strong>רווח בדשדוש:</strong> Iron Condor ו-Credit Spreads מרוויחים כשהשוק לא זז – משהו שלא ניתן לעשות עם מניות בלבד.</li>
+        </ul>
+
+        <div class="section-title"><span class="icon">📊</span> אופציות מול מניות – השוואה</div>
+        <div class="compare">
+          <div class="compare-card green">
+            <h4>✅ יתרונות אופציות</h4>
+            <ul>
+              <li>מינוף עד 1:10 ויותר</li>
+              <li>הפסד מוגבל לפרמיה (לקונה)</li>
+              <li>תזרים חודשי קבוע</li>
+              <li>רווח בדשדוש ובירידות</li>
+              <li>גידור תיק מניות</li>
+            </ul>
+          </div>
+          <div class="compare-card red">
+            <h4>⚠️ מה לדעת מראש</h4>
+            <ul>
+              <li>דורשות ידע וניסיון</li>
+              <li>Theta שוחק ערך יומית</li>
+              <li>IV Crush יכול למחוק רווח</li>
+              <li>מורכבות גבוהה יותר ממניות</li>
+              <li>דרושה משמעת עצמית</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="box box-dark">
+          <strong>אופציות הן כלי פיננסי מקצועי.</strong> בידיים מיומנות הן מאפשרות תוצאות שאינן אפשריות עם מניות בלבד. המדריך הזה נותן לך את הבסיס לעבוד איתן נכון.
+        </div>
+
+        <div class="chapter-nav">
+          <button class="btn btn-ghost" disabled>← פרק קודם</button>
+          <button class="btn btn-primary" onclick="showChapterByIndex(1)">פרק א: יסודות האופציה ←</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- ═══════════════════════════════════════ -->
+    <!-- CHAPTER 1 – FOUNDATIONS -->
+    <!-- ═══════════════════════════════════════ -->
+    <article class="chapter" id="ch1">
+      <div class="chapter-header">
+        <div class="chapter-eyebrow">פרק א</div>
+        <h2>פירוק חוזה האופציה</h2>
+        <p>כל המושגים הבסיסיים שחייבים לדעת לפני שנוגעים באסטרטגיות</p>
+      </div>
+      <div class="chapter-body">
+
+        <div class="section-title"><span class="icon">📋</span> Call מול Put</div>
+        <div class="compare">
+          <div class="compare-card green">
+            <h4>📈 Call – אופציית רכש</h4>
+            <ul>
+              <li>זכות לקנות נכס במחיר Strike</li>
+              <li>מרוויח כשמניה עולה</li>
+              <li>כלי למינוף שורי</li>
+              <li>פרמיה = עלות הכניסה</li>
+              <li>Call שימושי ב-Bull markets</li>
+            </ul>
+          </div>
+          <div class="compare-card red">
+            <h4>📉 Put – אופציית מכירה</h4>
+            <ul>
+              <li>זכות למכור נכס במחיר Strike</li>
+              <li>מרוויח כשמניה יורדת</li>
+              <li>כלי לגידור תיק</li>
+              <li>פרמיה = עלות הביטוח</li>
+              <li>Put שימושי ב-Bear markets</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="section-title"><span class="icon">📚</span> מילון המושגים הקריטיים</div>
+        <ul class="bullet-list">
+          <li><strong>נכס בסיס (Underlying Asset):</strong> המניה, ה-ETF או המדד שעליו כתובה האופציה. דוגמאות: Apple (AAPL), Tesla (TSLA), SPY, QQQ.</li>
+          <li><strong>מחיר מימוש (Strike Price):</strong> המחיר שבו תתבצע הקנייה/מכירה אם תמומש האופציה. נקבע בחוזה ולא משתנה לעולם.</li>
+          <li><strong>תאריך פקיעה (Expiration Date):</strong> התאריך האחרון לממש. אחריו האופציה פוקעת ושווה אפס. בארה"ב – בדרך כלל כל יום שישי.</li>
+          <li><strong>פרמיה (Premium):</strong> מחיר האופציה. מחושב לפי 100 מניות לחוזה. פרמיה $3 = $300 לחוזה. תמיד ×100!</li>
+          <li><strong>ערך פנימי (Intrinsic Value):</strong> כמה האופציה שווה "עכשיו" אם תמומש מיידית. קיים רק ב-ITM.</li>
+          <li><strong>ערך זמן (Extrinsic Value):</strong> פרמיית האי-ודאות. נשחק כל יום (Theta Decay) עד אפס בפקיעה.</li>
+        </ul>
+
+        <div class="box box-info">
+          <strong>⚠️ כלל חשוב:</strong> כל חוזה = 100 מניות. פרמיה של $3 = $300 בפועל. פרמיה של $10 = $1,000 בפועל. אל תשכח להכפיל ב-100 בכל חישוב!
+        </div>
+
+        <div class="section-title"><span class="icon">💰</span> פירוק פרמיה – דוגמה מלאה</div>
+        <p class="prose">מניית Apple נסחרת ב-$110. Call $100 עם 30 ימים לפקיעה, ומחירה $13:</p>
+        <div class="scenario">
+          <div class="scenario-title">Apple $110 | Call $100 | 30 ימים לפקיעה | פרמיה $13.00</div>
+          <div class="scenario-row">
+            <div class="s-label">ערך פנימי (Intrinsic)</div>
+            <div class="s-val up">$10.00 ← (110 − 100)</div>
+          </div>
+          <div class="scenario-row">
+            <div class="s-label">ערך זמן (Extrinsic)</div>
+            <div class="s-val flat">$3.00 ← אי-ודאות + 30 ימים</div>
+          </div>
+          <div class="scenario-row">
+            <div class="s-label">סה"כ פרמיה</div>
+            <div class="s-val up">$13.00 = $1,300 לחוזה (×100)</div>
+          </div>
+        </div>
+
+        <div class="section-title"><span class="icon">🎯</span> ITM / ATM / OTM</div>
+        <p class="prose">כל אופציה נמצאת באחד משלושה מצבים ביחס למחיר השוק:</p>
+        <div class="scenario">
+          <div class="scenario-title">שלושת המצבים – מניה X @ $100</div>
+          <div class="scenario-row">
+            <div class="s-label">בתוך הכסף – ITM</div>
+            <div class="s-val up">Call: מניה > Strike | Put: מניה &lt; Strike | יש ערך פנימי ✓</div>
+          </div>
+          <div class="scenario-row">
+            <div class="s-label">על הכסף – ATM</div>
+            <div class="s-val flat">מניה ≈ Strike | Delta ~0.50 | הכי רגישה לתנועה</div>
+          </div>
+          <div class="scenario-row">
+            <div class="s-label">מחוץ לכסף – OTM</div>
+            <div class="s-val down">Call: מניה &lt; Strike | Put: מניה > Strike | אפס ערך פנימי ✗</div>
+          </div>
+        </div>
+
+        <div class="box box-warn">
+          <strong>⚠️ הטעות הנפוצה ביותר:</strong> קניית OTM כי "זול". OTM = אפס ערך פנימי. כל הפרמיה היא ערך זמן שנשחק מדי יום. הסתברות לרווח נמוכה מ-30% ברוב המקרים. רוב ההפסדים של מתחילים מגיעים מכאן.
+        </div>
+
+        <div class="chapter-nav">
+          <button class="btn btn-ghost" onclick="showChapterByIndex(0)">← מבוא</button>
+          <button class="btn btn-primary" onclick="showChapterByIndex(2)">פרק ב: היווניות ←</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- ═══════════════════════════════════════ -->
+    <!-- CHAPTER 2 – GREEKS -->
+    <!-- ═══════════════════════════════════════ -->
+    <article class="chapter" id="ch2">
+      <div class="chapter-header">
+        <div class="chapter-eyebrow">פרק ב</div>
+        <h2>היווניות (The Greeks)</h2>
+        <p>המנוע שמאחורי מחיר האופציה – ארבעת המדדים שכל סוחר חייב להכיר</p>
+      </div>
+      <div class="chapter-body">
+
+        <div class="section-title"><span class="icon">🔢</span> ארבע היווניות המרכזיות</div>
+        <div class="greeks-grid">
+          <div class="greek-card">
+            <div class="greek-name">Δ Delta</div>
+            <div class="greek-hebrew">דלתא – רגישות למחיר</div>
+            <div class="greek-desc">כמה הפרמיה תזוז אם המניה תזוז $1. Call: 0 עד 1. Put: -1 עד 0. Delta 0.50 = פרמיה עולה $0.50 לכל $1 עלייה במניה.</div>
+            <div class="greek-example">Delta 0.50 (ATM): Apple ↑$5 → פרמיה ↑$2.50</div>
+          </div>
+          <div class="greek-card">
+            <div class="greek-name">Γ Gamma</div>
+            <div class="greek-hebrew">גאמא – קצב שינוי הדלתא</div>
+            <div class="greek-desc">קצב שינוי הדלתא. גבוה קרוב לפקיעה ו-ATM. מסוכן לכותבים. Gamma גבוה = Delta משתנה מהר.</div>
+            <div class="greek-example">גבוה ב-7 הימים האחרונים לפקיעה</div>
+          </div>
+          <div class="greek-card">
+            <div class="greek-name">Θ Theta</div>
+            <div class="greek-hebrew">תטא – שחיקת זמן יומית</div>
+            <div class="greek-desc">כמה הפרמיה יורדת מדי יום גם אם המניה לא זזה. שלילי לקונה, חיובי לכותב. מואץ ב-21 הימים האחרונים.</div>
+            <div class="greek-example">Theta -0.05: פרמיה יורדת $5/יום לחוזה</div>
+          </div>
+          <div class="greek-card">
+            <div class="greek-name">V Vega</div>
+            <div class="greek-hebrew">ווגא – רגישות ל-IV</div>
+            <div class="greek-desc">כמה הפרמיה תשתנה אם ה-IV (Implied Volatility) יזוז 1%. גבוה לפני דוחות. IV Crush = מחיקת פרמיה.</div>
+            <div class="greek-example">Vega 0.10: IV ↑5% → פרמיה ↑$0.50</div>
+          </div>
+        </div>
+
+        <div class="section-title"><span class="icon">⏱️</span> Theta – שחיקת הזמן בפועל</div>
+        <p class="prose">Theta הוא האויב הגדול של קוני האופציות. מדי יום, גם אם המניה לא זזה, האופציה שקנית שווה פחות. השחיקה <strong>אינה לינארית</strong> – היא מואצת מאוד ב-21 הימים האחרונים:</p>
+        <div class="scenario">
+          <div class="scenario-title">Apple | Call ATM | פרמיה $3.00 | 30 ימים</div>
+          <div class="scenario-row"><div class="s-label">יום 0 – 30 ימים לפקיעה</div><div class="s-val flat">פרמיה: $3.00 (100%)</div></div>
+          <div class="scenario-row"><div class="s-label">יום 9 – 21 ימים לפקיעה</div><div class="s-val down">פרמיה: $2.45 (−18%)</div></div>
+          <div class="scenario-row"><div class="s-label">יום 16 – 14 ימים לפקיעה</div><div class="s-val down">פרמיה: $2.00 (−33%)</div></div>
+          <div class="scenario-row"><div class="s-label">יום 23 – 7 ימים לפקיעה</div><div class="s-val down">פרמיה: $1.45 (−52%!)</div></div>
+          <div class="scenario-row"><div class="s-label">יום 28 – 2 ימים לפקיעה</div><div class="s-val down">פרמיה: $0.60 (−80%)</div></div>
+          <div class="scenario-row"><div class="s-label">יום 30 – פקיעה (OTM)</div><div class="s-val down">פרמיה: $0.00 – הפסד $300</div></div>
+        </div>
+        <div class="box box-success">
+          <strong>✔ כותבי אופציות:</strong> Theta עובד בשבילם מדי יום, 24/7. כל יום שעובר הם מרוויחים ללא פעולה. זו הסיבה שאסטרטגיות Credit (מכירת אופציות) פופולריות כל כך בקרב מקצוענים.
+        </div>
+
+        <div class="section-title"><span class="icon">💥</span> IV Crush – הסכנה הגדולה</div>
+        <p class="prose">לפני דוחות, ה-IV מתנפח כי השוק מצפה לתנועה גדולה. אחרי הדוח – גם אם הייתה תנועה – ה-IV קורס. תופעה זו נקראת IV Crush, והיא מוחקת קוני אופציות גם כשניחשו נכון:</p>
+        <div class="scenario">
+          <div class="scenario-title">IV Crush | Apple | דוח Q4 | Call ATM @ $6.00</div>
+          <div class="scenario-row"><div class="s-label">IV לפני הדוח</div><div class="s-val down">65% – פרמיות מנופחות!</div></div>
+          <div class="scenario-row"><div class="s-label">Apple עלתה +4%</div><div class="s-val up">כיוון נכון ✓</div></div>
+          <div class="scenario-row"><div class="s-label">IV אחרי הדוח</div><div class="s-val down">20% – ירידה של 45%!</div></div>
+          <div class="scenario-row"><div class="s-label">Delta הרוויח</div><div class="s-val up">+$200 (0.50 × $4 × 100)</div></div>
+          <div class="scenario-row"><div class="s-label">Vega הפסיד</div><div class="s-val down">−$450 (0.10 × 45 × 100)</div></div>
+          <div class="scenario-row"><div class="s-label">תוצאה סופית</div><div class="s-val down">הפסד $250 למרות עלייה של 4%!</div></div>
+        </div>
+        <div class="box box-danger">
+          <strong>🚨 כלל ברזל:</strong> לא קונים Long Options ממש לפני דוח! הפרמיה מנופחת ו-IV יקרוס אחרי הדוח גם אם המניה זזה בכיוון הנכון. המקצוענים מוכרים Credit Spreads לפני דוח – מנצלים את ה-IV הגבוה.
+        </div>
+
+        <div class="chapter-nav">
+          <button class="btn btn-ghost" onclick="showChapterByIndex(1)">← פרק א</button>
+          <button class="btn btn-primary" onclick="showChapterByIndex(3)">פרק ג: אסטרטגיות ←</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- ═══════════════════════════════════════ -->
+    <!-- CHAPTER 3 – STRATEGIES -->
+    <!-- ═══════════════════════════════════════ -->
+    <article class="chapter" id="ch3">
+      <div class="chapter-header">
+        <div class="chapter-eyebrow">פרק ג</div>
+        <h2>8 אסטרטגיות מסחר</h2>
+        <p>כל אסטרטגיה עם הסבר מלא, דוגמאות מספריות, תרחישים ומדדי P&L | מניה X @ $100</p>
+      </div>
+      <div class="chapter-body">
+
+        <!-- STRAT 1 -->
+        <div class="strat-card">
+          <div class="strat-header">
+            <div class="strat-num">1</div>
+            <div class="strat-header-text"><h3>Long Call – קניית אופציית רכש</h3><p>שורי חזק ↑ | רגל אחת | מינוף גבוה</p></div>
+            <div class="strat-tag">שורי ↑</div>
+          </div>
+          <div class="strat-body">
+            <p class="prose">מתאים כשמצפים לעלייה משמעותית בנכס הבסיס. מינוף גבוה עם הגבלת הפסד לפרמיה בלבד. הרווח תיאורטית בלתי מוגבל. במקום לקנות 100 מניות ב-$10,000, קונים Call ב-$300 ומקבלים חשיפה לאותה עלייה.</p>
+            <p class="prose"><strong>מבנה:</strong> קנה Call $105 @ $3.00 = עלות $300 לחוזה.</p>
+            <div class="strat-metrics">
+              <div class="metric"><span class="m-val neg">$300</span><span class="m-label">הפסד מקסימלי</span></div>
+              <div class="metric"><span class="m-val pos">∞</span><span class="m-label">רווח מקסימלי</span></div>
+              <div class="metric"><span class="m-val neu">$108</span><span class="m-label">Break-even</span></div>
+            </div>
+            <div class="scenario">
+              <div class="scenario-title">תרחישים | Long Call $105 @ $3 | עלות $300</div>
+              <div class="scenario-row"><div class="s-label">מניה עולה ל-$130</div><div class="s-val up">Call שווה $25 → רווח $2,200 (+733%)</div></div>
+              <div class="scenario-row"><div class="s-label">מניה עולה ל-$120</div><div class="s-val up">Call שווה $15 → רווח $1,200 (+400%)</div></div>
+              <div class="scenario-row"><div class="s-label">מניה עולה ל-$110</div><div class="s-val up">Call שווה $5 → רווח $200 (+67%)</div></div>
+              <div class="scenario-row"><div class="s-label">מניה ב-$108 (Break-even)</div><div class="s-val flat">איזון – לא מרוויח לא מפסיד</div></div>
+              <div class="scenario-row"><div class="s-label">מניה נשארת ב-$100</div><div class="s-val down">פוקעת $0 → הפסד $300 (−100%)</div></div>
+              <div class="scenario-row"><div class="s-label">מניה יורדת ל-$90</div><div class="s-val down">פוקעת $0 → הפסד $300 (−100%)</div></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- STRAT 2 -->
+        <div class="strat-card">
+          <div class="strat-header">
+            <div class="strat-num">2</div>
+            <div class="strat-header-text"><h3>Long Put – קניית אופציית מכירה</h3><p>דובי חזק ↓ | רגל אחת | גידור תיק</p></div>
+            <div class="strat-tag">דובי ↓</div>
+          </div>
+          <div class="strat-body">
+            <p class="prose">מתאים כשמצפים לירידה חדה, או כביטוח לתיק (Protective Put). הפסד מוגבל לפרמיה. מינוף גבוה – ירידה של 20% במניה יכולה להניב 400-500% ברווח.</p>
+            <p class="prose"><strong>מבנה:</strong> קנה Put $95 @ $2.50 = עלות $250 לחוזה.</p>
+            <div class="strat-metrics">
+              <div class="metric"><span class="m-val neg">$250</span><span class="m-label">הפסד מקסימלי</span></div>
+              <div class="metric"><span class="m-val pos">עד $9,250</span><span class="m-label">רווח מקסימלי</span></div>
+              <div class="metric"><span class="m-val neu">$92.50</span><span class="m-label">Break-even</span></div>
+            </div>
+            <div class="scenario">
+              <div class="scenario-title">תרחישים | Long Put $95 @ $2.50 | עלות $250</div>
+              <div class="scenario-row"><div class="s-label">מניה יורדת ל-$70</div><div class="s-val up">Put שווה $25 → רווח $2,250 (+900%)</div></div>
+              <div class="scenario-row"><div class="s-label">מניה יורדת ל-$80</div><div class="s-val up">Put שווה $15 → רווח $1,250 (+500%)</div></div>
+              <div class="scenario-row"><div class="s-label">מניה יורדת ל-$90</div><div class="s-val up">Put שווה $5 → רווח $250 (+100%)</div></div>
+              <div class="scenario-row"><div class="s-label">מניה ב-$92.50 (Break-even)</div><div class="s-val flat">איזון</div></div>
+              <div class="scenario-row"><div class="s-label">מניה נשארת ב-$100</div><div class="s-val down">פוקעת $0 → הפסד $250 (−100%)</div></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- STRAT 3 -->
+        <div class="strat-card">
+          <div class="strat-header">
+            <div class="strat-num">3</div>
+            <div class="strat-header-text"><h3>Covered Call – כתיבת Call מכוסה</h3><p>תזרים חודשי | בעלי מניות | הכנסה פסיבית</p></div>
+            <div class="strat-tag">תזרים</div>
+          </div>
+          <div class="strat-body">
+            <p class="prose">בעל 100 מניות כותב Call נגדן. מקבל פרמיה מיידית כל חודש. מגביל רווח מעל ה-Strike אבל יוצר הכנסה פסיבית קבועה. האסטרטגיה הפופולרית ביותר למשקיעים.</p>
+            <p class="prose"><strong>מבנה:</strong> מחזיק 100 מניות @ $100 + כותב Call $105 @ $3 = מקבל $300 מיידית.</p>
+            <div class="strat-metrics">
+              <div class="metric"><span class="m-val pos">+$300</span><span class="m-label">הכנסה מיידית</span></div>
+              <div class="metric"><span class="m-val pos">$800</span><span class="m-label">רווח מקסימלי</span></div>
+              <div class="metric"><span class="m-val neu">$97</span><span class="m-label">מוגן עד</span></div>
+            </div>
+            <div class="scenario">
+              <div class="scenario-title">תרחישים | 100 מניות @ $100 | כותב Call $105 @ $3</div>
+              <div class="scenario-row"><div class="s-label">מניה ב-$120 (זינוק)</div><div class="s-val flat">נמכרת ב-$105. רווח $500+$300=$800 (מוגבל!)</div></div>
+              <div class="scenario-row"><div class="s-label">מניה ב-$105 בפקיעה</div><div class="s-val up">נמכרת ב-$105. רווח מקסימלי $800</div></div>
+              <div class="scenario-row"><div class="s-label">מניה ב-$103 בפקיעה</div><div class="s-val up">נשארת בידיך. רווח $300+$300=$600</div></div>
+              <div class="scenario-row"><div class="s-label">מניה ב-$100 בפקיעה</div><div class="s-val up">נשארת בידיך. רווח $0+$300=$300</div></div>
+              <div class="scenario-row"><div class="s-label">מניה ב-$97 (Break-even)</div><div class="s-val flat">הפסד $300 + פרמיה $300 = איזון</div></div>
+              <div class="scenario-row"><div class="s-label">מניה ב-$90</div><div class="s-val down">נשארת בידיך. הפסד −$1,000+$300=−$700</div></div>
+            </div>
+            <div class="box box-warn" style="margin-top:14px">
+              <strong>⚠️</strong> כתיבת Covered Call מתאימה רק אם אתה מוכן למכור את המניה במחיר ה-Strike. אם המניה יקרה לך – אל תכתוב.
+            </div>
+          </div>
+        </div>
+
+        <!-- STRAT 4 -->
+        <div class="strat-card">
+          <div class="strat-header">
+            <div class="strat-num">4</div>
+            <div class="strat-header-text"><h3>Cash Secured Put (CSP)</h3><p>רכישה חכמה | תזרים | קנייה בהנחה</p></div>
+            <div class="strat-tag">הכנסה</div>
+          </div>
+          <div class="strat-body">
+            <p class="prose">כותב Put ומחזיק מזומן כבטוחה. מקבל פרמיה. אם יוסב – קונה מניה שרצה בה בהנחה. אסטרטגיית "קנייה סבלנית" – מצוינת למשקיעים לטווח ארוך.</p>
+            <p class="prose"><strong>מבנה:</strong> כותב Put $95 @ $2 = מקבל $200. מחזיק $9,500 בצד כבטוחה.</p>
+            <div class="strat-metrics">
+              <div class="metric"><span class="m-val pos">+$200</span><span class="m-label">הכנסה מיידית</span></div>
+              <div class="metric"><span class="m-val pos">$200</span><span class="m-label">רווח מקסימלי</span></div>
+              <div class="metric"><span class="m-val neu">$93</span><span class="m-label">עלות נטו</span></div>
+            </div>
+            <div class="scenario">
+              <div class="scenario-title">תרחישים | כותב Put $95 @ $2 | מזומן $9,500</div>
+              <div class="scenario-row"><div class="s-label">מניה ב-$110</div><div class="s-val up">פוקעת חסרת ערך. שמרת $200. ✓</div></div>
+              <div class="scenario-row"><div class="s-label">מניה ב-$100</div><div class="s-val up">פוקעת חסרת ערך. שמרת $200. ✓</div></div>
+              <div class="scenario-row"><div class="s-label">מניה ב-$95</div><div class="s-val up">פוקעת חסרת ערך. שמרת $200. ✓</div></div>
+              <div class="scenario-row"><div class="s-label">מניה ב-$93 (Break-even)</div><div class="s-val flat">קנית 100 מניות @ $95. עלות נטו $93. איזון.</div></div>
+              <div class="scenario-row"><div class="s-label">מניה ב-$85</div><div class="s-val down">קנית @ $95. מניה שווה $85. הפסד ~$800</div></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- STRAT 5 -->
+        <div class="strat-card">
+          <div class="strat-header">
+            <div class="strat-num">5</div>
+            <div class="strat-header-text"><h3>Bull Call Spread – מרווח Call (Debit)</h3><p>שורי מתון ↑ | 2 רגליים | R:R ברור</p></div>
+            <div class="strat-tag">Debit Spread</div>
+          </div>
+          <div class="strat-body">
+            <p class="prose">קניית Call נמוך + מכירת Call גבוה. מגביל הן את הסיכון והן את הרווח. יחס R:R ברור מראש. עדיף ל-Long Call יקר – עולה פחות ומחייב תנועה קטנה יותר לאיזון.</p>
+            <p class="prose"><strong>מבנה:</strong> קנה Call $100 @ $5 − כתב Call $110 @ $2 = Debit נטו $300.</p>
+            <div class="strat-metrics">
+              <div class="metric"><span class="m-val neg">$300</span><span class="m-label">הפסד מקסימלי</span></div>
+              <div class="metric"><span class="m-val pos">$700</span><span class="m-label">רווח מקסימלי</span></div>
+              <div class="metric"><span class="m-val neu">1:2.33</span><span class="m-label">יחס R:R</span></div>
+            </div>
+            <div class="scenario">
+              <div class="scenario-title">תרחישים | Bull Call Spread 100/110 | Debit $300</div>
+              <div class="scenario-row"><div class="s-label">מניה עולה ל-$115+</div><div class="s-val up">Spread שווה $1,000 → רווח $700 (+233%)</div></div>
+              <div class="scenario-row"><div class="s-label">מניה עולה ל-$110</div><div class="s-val up">Spread שווה $1,000 → רווח $700 (מקסימום!)</div></div>
+              <div class="scenario-row"><div class="s-label">מניה עולה ל-$106</div><div class="s-val up">Spread שווה ~$600 → רווח $300 (+100%)</div></div>
+              <div class="scenario-row"><div class="s-label">מניה ב-$103 (Break-even)</div><div class="s-val flat">איזון</div></div>
+              <div class="scenario-row"><div class="s-label">מניה ב-$100</div><div class="s-val down">Spread שווה $0 → הפסד $300 (−100%)</div></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- STRAT 6 -->
+        <div class="strat-card">
+          <div class="strat-header">
+            <div class="strat-num">6</div>
+            <div class="strat-header-text"><h3>Bull Put Spread – מרווח Put (Credit)</h3><p>שורי/ניטרלי | 2 רגליים | הסתברות גבוהה</p></div>
+            <div class="strat-tag">Credit Spread</div>
+          </div>
+          <div class="strat-body">
+            <p class="prose">כותב Put גבוה + קונה Put נמוך. מקבל קרדיט מראש. מרוויח כשמניה נשארת מעל ה-Strike. עובד עם הסתברות גבוהה (~70%). Theta עובד לטובתך כל יום.</p>
+            <p class="prose"><strong>מבנה:</strong> כתב Put $95 @ $3 − קנה Put $90 @ $1 = Credit נטו $200.</p>
+            <div class="strat-metrics">
+              <div class="metric"><span class="m-val pos">+$200</span><span class="m-label">קרדיט שהתקבל</span></div>
+              <div class="metric"><span class="m-val neg">$300</span><span class="m-label">הפסד מקסימלי</span></div>
+              <div class="metric"><span class="m-val pos">~70%</span><span class="m-label">הסתברות הצלחה</span></div>
+            </div>
+            <div class="scenario">
+              <div class="scenario-title">תרחישים | Bull Put Spread 90/95 | קרדיט $200</div>
+              <div class="scenario-row"><div class="s-label">מניה ב-$110+</div><div class="s-val up">שתיהן פוקעות חסרות ערך → רווח $200</div></div>
+              <div class="scenario-row"><div class="s-label">מניה ב-$100</div><div class="s-val up">שתיהן פוקעות חסרות ערך → רווח $200</div></div>
+              <div class="scenario-row"><div class="s-label">מניה ב-$95 (גבול)</div><div class="s-val up">שתיהן פוקעות חסרות ערך → רווח $200</div></div>
+              <div class="scenario-row"><div class="s-label">מניה ב-$93 (Break-even)</div><div class="s-val flat">איזון</div></div>
+              <div class="scenario-row"><div class="s-label">מניה ב-$90 ומטה</div><div class="s-val down">הפסד מקסימלי $300 (ה-Put ב-$90 מגביל!)</div></div>
+            </div>
+            <div class="box box-info" style="margin-top:14px">
+              <strong>ניהול:</strong> סגור ב-50% מהקרדיט ($100 רווח). אל תחכה לפקיעה – שחרר את ההון לעסקה הבאה.
+            </div>
+          </div>
+        </div>
+
+        <!-- STRAT 7 -->
+        <div class="strat-card">
+          <div class="strat-header">
+            <div class="strat-num">7</div>
+            <div class="strat-header-text"><h3>Iron Condor – איירון קונדור</h3><p>ניטרלי ↔ דשדוש | 4 רגליים | תזרים</p></div>
+            <div class="strat-tag">ניטרלי</div>
+          </div>
+          <div class="strat-body">
+            <p class="prose">שילוב Bull Put Spread + Bear Call Spread. מרוויח כשהמניה נשארת בטווח מוגדר – לא עולה מדי ולא יורדת מדי. אסטרטגיית תזרים מצוינת בשוק דשדוש עם IV גבוה.</p>
+            <p class="prose"><strong>מבנה:</strong> כתב Put $90 @ $1 + קנה Put $85 @ $0.50 + כתב Call $110 @ $1 + קנה Call $115 @ $0.50 = קרדיט כולל $200.</p>
+            <div class="strat-metrics">
+              <div class="metric"><span class="m-val pos">+$200</span><span class="m-label">קרדיט כולל</span></div>
+              <div class="metric"><span class="m-val neg">$300</span><span class="m-label">הפסד מקסימלי</span></div>
+              <div class="metric"><span class="m-val neu">$88–$112</span><span class="m-label">Break-even</span></div>
+            </div>
+            <div class="scenario">
+              <div class="scenario-title">תרחישים | Iron Condor 85/90/110/115 | קרדיט $200</div>
+              <div class="scenario-row"><div class="s-label">מניה ב-$100 (מרכז)</div><div class="s-val up">כל הרגליות פוקעות חסרות ערך → רווח $200</div></div>
+              <div class="scenario-row"><div class="s-label">מניה ב-$95</div><div class="s-val up">כל הרגליות פוקעות חסרות ערך → רווח $200</div></div>
+              <div class="scenario-row"><div class="s-label">מניה ב-$90 (גבול תחתון)</div><div class="s-val up">גבול תחתון, עדיין רווח $200</div></div>
+              <div class="scenario-row"><div class="s-label">מניה ב-$88 (Break-even)</div><div class="s-val flat">איזון</div></div>
+              <div class="scenario-row"><div class="s-label">מניה ב-$85 ומטה</div><div class="s-val down">הפסד מקסימלי $300 (ה-Put ב-$85 מגביל)</div></div>
+              <div class="scenario-row"><div class="s-label">מניה ב-$110 (גבול עליון)</div><div class="s-val up">גבול עליון, עדיין רווח $200</div></div>
+              <div class="scenario-row"><div class="s-label">מניה ב-$115 ומעלה</div><div class="s-val down">הפסד מקסימלי $300 (ה-Call ב-$115 מגביל)</div></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- STRAT 8 -->
+        <div class="strat-card">
+          <div class="strat-header">
+            <div class="strat-num">8</div>
+            <div class="strat-header-text"><h3>Straddle – סטרדל</h3><p>תנודתיות גבוהה ↑↓ | 2 רגליים | לפני אירועים</p></div>
+            <div class="strat-tag">תנודתיות</div>
+          </div>
+          <div class="strat-body">
+            <p class="prose">קניית Call ו-Put באותו Strike ופקיעה. מרוויח מתנועה חדה בכל כיוון. נפוץ לפני דוחות – אבל זהירות מ-IV Crush! צריך תנועה גדולה מ-7.5% כדי להרוויח.</p>
+            <p class="prose"><strong>מבנה:</strong> קנה Call $100 @ $4 + קנה Put $100 @ $3.50 = עלות $750.</p>
+            <div class="strat-metrics">
+              <div class="metric"><span class="m-val neg">$750</span><span class="m-label">הפסד מקסימלי</span></div>
+              <div class="metric"><span class="m-val pos">∞</span><span class="m-label">רווח פוטנציאלי</span></div>
+              <div class="metric"><span class="m-val neu">±$107.50</span><span class="m-label">Break-even</span></div>
+            </div>
+            <div class="scenario">
+              <div class="scenario-title">תרחישים | Straddle $100 | עלות $750</div>
+              <div class="scenario-row"><div class="s-label">מניה עולה ל-$120</div><div class="s-val up">Call שווה $20 → רווח $1,250 (+167%)</div></div>
+              <div class="scenario-row"><div class="s-label">מניה ב-$107.50 (BEP)</div><div class="s-val flat">איזון</div></div>
+              <div class="scenario-row"><div class="s-label">מניה נשארת ב-$100</div><div class="s-val down">שניהם פוקעים $0 → הפסד $750 (−100%)</div></div>
+              <div class="scenario-row"><div class="s-label">מניה ב-$92.50 (BEP)</div><div class="s-val flat">איזון</div></div>
+              <div class="scenario-row"><div class="s-label">מניה יורדת ל-$85</div><div class="s-val up">Put שווה $15 → רווח $750 (+100%)</div></div>
+              <div class="scenario-row"><div class="s-label">מניה יורדת ל-$75</div><div class="s-val up">Put שווה $25 → רווח $1,750 (+233%)</div></div>
+            </div>
+            <div class="box box-danger" style="margin-top:14px">
+              <strong>🚨 IV Crush:</strong> Straddle לפני דוח יכול להפסיד גם אם המניה זזה, אם IV קרס מספיק. תמיד בדוק שהתנועה הצפויה גדולה מה-Implied Move לפני כניסה.
+            </div>
+          </div>
+        </div>
+
+        <div class="chapter-nav">
+          <button class="btn btn-ghost" onclick="showChapterByIndex(2)">← פרק ב</button>
+          <button class="btn btn-primary" onclick="showChapterByIndex(4)">פרק ד: ניהול סיכונים ←</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- ═══════════════════════════════════════ -->
+    <!-- CHAPTER 4 – RISK -->
+    <!-- ═══════════════════════════════════════ -->
+    <article class="chapter" id="ch4">
+      <div class="chapter-header">
+        <div class="chapter-eyebrow">פרק ד</div>
+        <h2>ניהול סיכונים ועצות</h2>
+        <p>5 כללי ברזל שמבדילים בין סוחר שורד לסוחר שנמחק</p>
+      </div>
+      <div class="chapter-body">
+
+        <div class="section-title"><span class="icon">🚨</span> כלל 1: לעולם לא Naked Options</div>
+        <p class="prose">Naked Option = כתבת אופציה ללא הגנה. ללא Spread, ללא מניות, ללא מזומן. הרווח המקסימלי = הפרמיה. הסיכון = בלתי מוגבל.</p>
+        <p class="prose">ב-2021 מניות GameStop ו-AMC עלו 1,500-3,000% תוך שבועות. כותבי Naked Call על GME @ $20 הפסידו עשרות אלפי דולרים לחוזה – לכל חוזה בנפרד. אנשים איבדו את כל החיסכון שלהם.</p>
+        <div class="box box-danger">
+          <strong>🚨 כלל ברזל מוחלט:</strong> תמיד Spread, תמיד כיסוי. Bull Put Spread מגביל הפסד ל-$300. Naked Put חושף לאלפי דולרים. ההבדל בין סוחר שורד לסוחר שנמחק הוא כלל אחד זה.
+        </div>
+
+        <div class="section-title"><span class="icon">💰</span> כלל 2: Position Sizing</div>
+        <p class="prose">Position Sizing הוא אומנות ניהול ההון. הכלל הפשוט: לא יותר מ-2-5% מהתיק בסיכון בעסקה בודדת.</p>
+        <div class="scenario">
+          <div class="scenario-title">דוגמה | תיק $25,000 | 2% סיכון לעסקה</div>
+          <div class="scenario-row"><div class="s-label">הפסד מקסימלי לעסקה</div><div class="s-val flat">$500 (2% × $25,000)</div></div>
+          <div class="scenario-row"><div class="s-label">חשיפת אופציות מקסימלית</div><div class="s-val flat">$5,000 (20% מהתיק)</div></div>
+          <div class="scenario-row"><div class="s-label">מספר עסקות מקביל</div><div class="s-val up">4–6 עסקות (פיזור!)</div></div>
+          <div class="scenario-row"><div class="s-label">Bull Put Spread @ $300 הפסד מקסימלי</div><div class="s-val up">מקסימום 1 חוזה (500 > 300 ✓)</div></div>
+        </div>
+
+        <div class="section-title"><span class="icon">📋</span> כלל 3: Limit Orders תמיד</div>
+        <p class="prose">מרווחי Bid-Ask באופציות יכולים להגיע ל-$0.20–$2.00. Market Order = מקבל את המחיר הגרוע ביותר. על 10 חוזות, ההפרש יכול להגיע ל-$200 שיצאו לשווא.</p>
+        <ul class="bullet-list">
+          <li><strong>כניסה:</strong> Limit במחיר האמצע בין Bid ל-Ask</li>
+          <li><strong>Take Profit:</strong> GTC Limit @ 50% מהקרדיט (מוגדר מראש בכניסה)</li>
+          <li><strong>Stop Loss:</strong> GTC Limit @ 200% מהקרדיט (2×)</li>
+        </ul>
+        <div class="box box-success">
+          <strong>✔</strong> מכרת Credit Spread @ $2.00? הגדר מיידית: Take Profit @ $1.00 ו-Stop Loss @ $4.00. אוטומטי, ברור, לא צריך לשבת מול המסך.
+        </div>
+
+        <div class="section-title"><span class="icon">⭐</span> 5 עצות זהב למתחיל</div>
+        <ul class="bullet-list">
+          <li><strong>Paper Trading קודם:</strong> 3–6 חודשים של מסחר דמה לפני כסף אמיתי. 90% מהמתחילים מפסידים בשנה הראשונה – Paper Trading עוזר להיות ב-10% האחרים.</li>
+          <li><strong>2–5% לעסקה בלבד:</strong> גם אם הטרייד "הכי בטוח בעולם". גם אם "בטוח שזה הולך". אין דבר כזה בטוח. הגבל תמיד.</li>
+          <li><strong>Theta הוא האויב:</strong> כל יום שעובר האופציה שקנית שווה פחות. קנית Long Call? סגור ב-50–100% רווח בהקדם. אל תחכה לפקיעה.</li>
+          <li><strong>Stop Loss = חוק לא הצעה:</strong> לפני שנכנסים – מחליטים מה נקודת היציאה בהפסד. ומחזיקים בה. לא "עוד קצת ויחזור".</li>
+          <li><strong>בדוק IV לפני כל עסקה:</strong> IV גבוה ביחס להיסטוריה = מכור אופציות (Credit). IV נמוך = שקול לקנות. IV Crush יכול להרוס כל עסקה טובה.</li>
+        </ul>
+
+        <div class="section-title"><span class="icon">📊</span> טבלת סיכום – 8 האסטרטגיות</div>
+        <table class="summary-table">
+          <thead>
+            <tr><th>#</th><th>אסטרטגיה</th><th>תחזית</th><th>רווח מקס.</th><th>הפסד מקס.</th></tr>
+          </thead>
+          <tbody>
+            <tr><td class="td-gold">1</td><td>Long Call</td><td>שורי חזק ↑</td><td class="td-green">∞</td><td class="td-red">$300</td></tr>
+            <tr><td class="td-gold">2</td><td>Long Put</td><td>דובי חזק ↓</td><td class="td-green">עד $9,250</td><td class="td-red">$250</td></tr>
+            <tr><td class="td-gold">3</td><td>Covered Call</td><td>ניטרלי/שורי</td><td class="td-green">$800</td><td class="td-red">הפסד מניה</td></tr>
+            <tr><td class="td-gold">4</td><td>Cash Secured Put</td><td>שורי/ניטרלי</td><td class="td-green">$200</td><td class="td-red">$9,300</td></tr>
+            <tr><td class="td-gold">5</td><td>Bull Call Spread</td><td>שורי מתון ↑</td><td class="td-green">$700</td><td class="td-red">$300</td></tr>
+            <tr><td class="td-gold">6</td><td>Bull Put Spread</td><td>שורי/ניטרלי</td><td class="td-green">$200</td><td class="td-red">$300</td></tr>
+            <tr><td class="td-gold">7</td><td>Iron Condor</td><td>דשדוש ↔</td><td class="td-green">$200</td><td class="td-red">$300</td></tr>
+            <tr><td class="td-gold">8</td><td>Straddle</td><td>תנודתיות ↑↓</td><td class="td-green">∞</td><td class="td-red">$750</td></tr>
+          </tbody>
+        </table>
+
+        <div class="box box-dark" style="margin-top:24px">
+          "מסחר באופציות הוא מרתון, לא ספרינט. סבלנות, ידע ועקביות הם המפתח להצלחה ארוכת טווח. למד, תרגל, והתחל בסכומים קטנים."
+        </div>
+
+        <div class="chapter-nav">
+          <button class="btn btn-ghost" onclick="showChapterByIndex(3)">← פרק ג</button>
+          <button class="btn btn-primary" onclick="showChapterByIndex(0)">חזרה להתחלה 🏠</button>
+        </div>
+      </div>
+    </article>
+
+  </main>
+</div>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <span>SAGI TRADING PRO</span> | sagitrading.com | כל הזכויות שמורות | המדריך מיועד לצרכי לימוד בלבד
+</footer>
+
+<script>
+  const chapters = ['ch0','ch1','ch2','ch3','ch4'];
+  const sideLinks = document.querySelectorAll('.sidebar-nav a');
+  const headerLinks = document.querySelectorAll('.header-nav a');
+  let currentIdx = 0;
+
+  function showChapter(idx, clickedEl) {
+    if(clickedEl) { clickedEl.preventDefault && clickedEl.preventDefault(); }
+    chapters.forEach((id,i) => {
+      document.getElementById(id).classList.toggle('active', i === idx);
+    });
+    sideLinks.forEach((a,i) => a.classList.toggle('active', i === idx));
+    headerLinks.forEach((a,i) => a.classList.toggle('active', i === idx));
+    currentIdx = idx;
+    const pct = Math.round((idx / (chapters.length - 1)) * 100);
+    document.getElementById('prog-bar').style.width = pct + '%';
+    document.getElementById('prog-pct').textContent = pct + '%';
+    window.scrollTo({top: 0, behavior: 'smooth'});
+    return false;
+  }
+
+  function showChapterByIndex(idx) { showChapter(idx, null); }
+
+  // init sidebar clicks
+  sideLinks.forEach((a,i) => {
+    a.addEventListener('click', e => { e.preventDefault(); showChapter(i, null); });
+  });
+  headerLinks.forEach((a,i) => {
+    a.addEventListener('click', e => { e.preventDefault(); showChapter(i, null); });
+  });
+</script>
+</body>
+</html>

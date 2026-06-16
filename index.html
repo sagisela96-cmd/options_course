@@ -1,538 +1,141 @@
-<!DOCTYPE html>
-<html lang="he" dir="rtl">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SAGI TRADING PRO | קורסי מסחר</title>
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&display=swap');
-:root{
-  --navy:#0B1628;--navy2:#142038;--gold:#C9952A;--gold2:#E8B84B;
-  --cream:#F5F0E8;--warm:#EDE6D9;--white:#fff;
-  --text:#1C2B3A;--mid:#4A5568;--light:#8896A7;
-  --green:#0F5C2E;--red:#8B1A1A;--border:#D8D0C4;--r:10px;
-  --shadow:0 4px 24px rgba(11,22,40,0.10);
-}
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:'Heebo',sans-serif;background:var(--cream);color:var(--text);font-size:16px;line-height:1.7}
+SAGI TRADING PRO
+sagitrading.com
+יציאה
+SAGI TRADING PRO – אזור מנויים
+קורסי מסחר מקצועיים
+מיסודות הטכני ועד מסחר מתקדם באופציות – כל הקורסים במקום אחד
 
-/* ══ LOGIN SCREEN ══ */
-#login-screen{
-  position:fixed;inset:0;background:var(--navy);
-  display:flex;align-items:center;justify-content:center;
-  z-index:9999;flex-direction:column;
-}
-.login-box{
-  background:rgba(255,255,255,0.04);
-  border:1px solid rgba(201,149,42,0.25);
-  border-radius:16px;padding:48px 40px;width:360px;
-  text-align:center;backdrop-filter:blur(10px);
-}
-.login-logo{color:var(--gold);font-size:22px;font-weight:900;margin-bottom:6px}
-.login-logo span{color:rgba(255,255,255,0.5);font-weight:300}
-.login-sub{color:rgba(255,255,255,0.4);font-size:13px;margin-bottom:32px}
-.login-box label{display:block;text-align:right;color:rgba(255,255,255,0.6);
-  font-size:13px;font-weight:600;margin-bottom:8px}
-.login-box input{
-  width:100%;background:rgba(255,255,255,0.07);
-  border:1px solid rgba(201,149,42,0.3);border-radius:8px;
-  padding:13px 16px;font-family:'Heebo',sans-serif;font-size:15px;
-  color:#fff;text-align:right;direction:rtl;outline:none;
-  transition:border-color .2s;
-}
-.login-box input:focus{border-color:var(--gold)}
-.login-btn{
-  width:100%;margin-top:20px;background:var(--gold);
-  color:var(--navy);font-family:'Heebo',sans-serif;font-size:16px;
-  font-weight:800;padding:13px;border:none;border-radius:8px;
-  cursor:pointer;transition:all .2s;
-}
-.login-btn:hover{background:var(--gold2);transform:translateY(-1px)}
-.login-error{color:#fc8181;font-size:13px;margin-top:12px;display:none}
-.login-hint{color:rgba(255,255,255,0.25);font-size:11px;margin-top:18px}
-
-/* ══ MAIN SITE (hidden until login) ══ */
-#main-site{display:none}
-
-/* ── HEADER ── */
-.header{
-  background:var(--navy);height:68px;display:flex;align-items:center;
-  justify-content:space-between;padding:0 40px;
-  border-bottom:2px solid var(--gold);position:sticky;top:0;z-index:100;
-}
-.logo{color:var(--gold);font-weight:900;font-size:20px;letter-spacing:.5px}
-.logo span{color:rgba(255,255,255,.45);font-weight:300}
-.header-right{display:flex;align-items:center;gap:18px}
-.header-site{color:rgba(255,255,255,.35);font-size:12px}
-.logout-btn{
-  background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.15);
-  color:rgba(255,255,255,0.5);font-family:'Heebo',sans-serif;font-size:12px;
-  padding:5px 14px;border-radius:20px;cursor:pointer;transition:all .2s;
-}
-.logout-btn:hover{background:rgba(255,255,255,0.12);color:#fff}
-
-/* ── HERO ── */
-.hero{
-  background:linear-gradient(135deg,var(--navy) 0%,var(--navy2) 55%,#1a2d4a 100%);
-  padding:72px 40px 64px;text-align:center;position:relative;overflow:hidden;
-}
-.hero::before{content:'';position:absolute;inset:0;
-  background:radial-gradient(circle at 70% 50%,rgba(201,149,42,.08) 0%,transparent 60%);
-  pointer-events:none}
-.hero-eyebrow{
-  display:inline-block;background:rgba(201,149,42,.15);
-  border:1px solid rgba(201,149,42,.4);color:var(--gold2);
-  font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;
-  padding:5px 18px;border-radius:20px;margin-bottom:20px;
-}
-.hero h1{font-size:clamp(28px,5vw,50px);font-weight:900;color:#fff;
-  line-height:1.15;margin-bottom:14px}
-.hero h1 em{color:var(--gold2);font-style:normal}
-.hero p{font-size:15px;color:rgba(255,255,255,.6);max-width:520px;
-  margin:0 auto 36px;line-height:1.75}
-.hero-stats{display:flex;justify-content:center;gap:44px;flex-wrap:wrap}
-.hero-stat .val{font-size:28px;font-weight:900;color:var(--gold2);display:block}
-.hero-stat .lbl{font-size:12px;color:rgba(255,255,255,.45);margin-top:2px}
-
-/* ── SECTION ── */
-.section{max-width:1060px;margin:0 auto;padding:52px 24px 72px}
-
-/* ── NEW COURSE BANNER ── */
-.new-banner{
-  background:linear-gradient(135deg,var(--navy) 0%,#1a3a5c 100%);
-  border-radius:var(--r);padding:34px 38px;margin-bottom:44px;
-  display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center;
-  border:1px solid rgba(201,149,42,.35);position:relative;overflow:hidden;
-}
-.new-banner::before{content:'';position:absolute;
-  top:-50px;left:-50px;width:220px;height:220px;
-  background:radial-gradient(circle,rgba(201,149,42,.1) 0%,transparent 70%);
-  pointer-events:none}
-.nb-eyebrow{font-size:10px;font-weight:700;letter-spacing:2px;
-  text-transform:uppercase;color:var(--gold);margin-bottom:8px}
-.nb-title{font-size:22px;font-weight:900;color:#fff;margin-bottom:8px;line-height:1.2}
-.nb-title span{color:var(--gold2)}
-.nb-desc{font-size:13px;color:rgba(255,255,255,.6);line-height:1.7;max-width:460px}
-.nb-feats{display:flex;gap:16px;margin-top:14px;flex-wrap:wrap}
-.nb-feat{font-size:12px;color:rgba(255,255,255,.65)}
-.nb-feat::before{content:'✓ ';color:var(--gold2);font-weight:700}
-.nb-btn{
-  background:var(--gold);color:var(--navy);font-family:'Heebo',sans-serif;
-  font-size:15px;font-weight:800;padding:14px 28px;border-radius:8px;
-  text-decoration:none;white-space:nowrap;border:none;cursor:pointer;
-  transition:all .2s;display:inline-block;
-}
-.nb-btn:hover{background:var(--gold2);transform:translateY(-2px)}
-
-/* ── SECTION HEADER ── */
-.sec-label{font-size:10px;font-weight:700;letter-spacing:2px;
-  text-transform:uppercase;color:var(--gold);margin-bottom:8px}
-.sec-title{font-size:24px;font-weight:900;color:var(--navy);margin-bottom:4px}
-.sec-sub{font-size:14px;color:var(--mid);margin-bottom:34px}
-
-/* ── GRID ── */
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:22px}
-
-/* ── CARD ── */
-.card{
-  background:var(--white);border-radius:var(--r);
-  border:1px solid var(--border);overflow:hidden;
-  box-shadow:var(--shadow);transition:transform .2s,box-shadow .2s;
-  display:flex;flex-direction:column;
-}
-.card:hover{transform:translateY(-4px);box-shadow:0 12px 36px rgba(11,22,40,.14)}
-
-.card-thumb{
-  height:150px;display:flex;align-items:center;justify-content:center;
-  font-size:52px;position:relative;overflow:hidden;
-}
-.card-thumb::after{content:'';position:absolute;inset:0;
-  background:linear-gradient(180deg,transparent 40%,rgba(0,0,0,.28) 100%)}
-
-.t1{background:linear-gradient(135deg,#0a1f3a 0%,#1e4d8c 100%)}
-.t2{background:linear-gradient(135deg,#0a2e1a 0%,#1a6b3c 100%)}
-.t3{background:linear-gradient(135deg,#2a1a00 0%,#7a4e00 100%)}
-.t4{background:linear-gradient(135deg,#1a0a2e 0%,#4a1a8c 100%)}
-.t5{background:linear-gradient(135deg,#0a2a2e 0%,#1a6b6b 100%)}
-.t6{background:linear-gradient(135deg,#2e0a0a 0%,#8c1a1a 100%)}
-.t7{background:linear-gradient(135deg,#050e1a 0%,#0b1e38 100%)}
-.t8{background:linear-gradient(135deg,#0a0f1a 0%,#1a2540 100%)}
-.t9{background:linear-gradient(135deg,#2a1200 0%,#8c4a00 100%)}
-.t10{background:linear-gradient(135deg,#0a0a2e 0%,#2a2a8c 100%)}
-.t11{background:linear-gradient(135deg,#0a1f0a 0%,#1e5c1e 100%)}
-.tnew{background:linear-gradient(135deg,#0f2200 0%,#2e6600 100%);border:2px solid var(--gold)}
-
-.badge{position:absolute;top:10px;right:10px;z-index:2;
-  font-size:10px;font-weight:700;padding:3px 9px;border-radius:20px;letter-spacing:.5px}
-.badge-new{background:var(--gold);color:var(--navy)}
-.badge-hot{background:#e53e3e;color:#fff}
-.badge-adv{background:#6b21a8;color:#fff}
-
-.card-body{padding:18px 20px;flex:1;display:flex;flex-direction:column}
-.card-num{font-size:10px;font-weight:700;color:var(--gold);
-  letter-spacing:1px;text-transform:uppercase;margin-bottom:5px}
-.card-title{font-size:15px;font-weight:800;color:var(--navy);
-  margin-bottom:7px;line-height:1.3}
-.card-desc{font-size:13px;color:var(--mid);line-height:1.65;flex:1;margin-bottom:14px}
-.card-tags{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:16px}
-.tag{font-size:11px;font-weight:600;padding:2px 9px;border-radius:20px;
-  background:var(--warm);color:var(--mid);border:1px solid var(--border)}
-.card-footer{display:flex;align-items:center;justify-content:space-between;
-  padding-top:12px;border-top:1px solid var(--border)}
-.card-meta{font-size:12px;color:var(--light)}
-.card-btn{
-  display:inline-flex;align-items:center;gap:5px;
-  background:var(--navy);color:var(--gold2);
-  font-family:'Heebo',sans-serif;font-size:13px;font-weight:700;
-  padding:7px 16px;border-radius:6px;text-decoration:none;
-  border:none;cursor:pointer;transition:all .2s;
-}
-.card-btn:hover{background:var(--navy2);transform:translateY(-1px)}
-.card-btn-out{
-  background:transparent;color:var(--navy);
-  border:1.5px solid var(--border);
-}
-.card-btn-out:hover{background:var(--warm);border-color:var(--gold);color:var(--navy)}
-
-/* ── FOOTER ── */
-.footer{
-  background:var(--navy);color:rgba(255,255,255,.35);
-  text-align:center;padding:26px;font-size:12px;
-  border-top:1px solid rgba(201,149,42,.18);
-}
-.footer strong{color:var(--gold)}
-
-/* ── RESPONSIVE ── */
-@media(max-width:700px){
-  .header{padding:0 18px}
-  .hero{padding:48px 18px 44px}
-  .hero-stats{gap:24px}
-  .section{padding:36px 16px 56px}
-  .new-banner{grid-template-columns:1fr;padding:22px}
-  .grid{grid-template-columns:1fr}
-  .nb-btn{width:100%;text-align:center}
-}
-</style>
-</head>
-<body>
-
-<!-- ══════════════════════════════════════ -->
-<!-- LOGIN SCREEN                          -->
-<!-- ══════════════════════════════════════ -->
-<div id="login-screen">
-  <div class="login-box">
-    <div class="login-logo">SAGI <span>TRADING</span> PRO</div>
-    <div class="login-sub">אזור מנויים בלבד</div>
-    <label>סיסמה</label>
-    <input type="password" id="pw-input" placeholder="הכנס סיסמה"
-      onkeydown="if(event.key==='Enter') tryLogin()">
-    <button class="login-btn" onclick="tryLogin()">כניסה ←</button>
-    <div class="login-error" id="login-error">❌ סיסמה שגויה – נסה שוב</div>
-    <div class="login-hint">sagitrading.com</div>
-  </div>
-</div>
-
-<!-- ══════════════════════════════════════ -->
-<!-- MAIN SITE                             -->
-<!-- ══════════════════════════════════════ -->
-<div id="main-site">
-
-  <!-- HEADER -->
-  <header class="header">
-    <div class="logo">SAGI <span>TRADING</span> PRO</div>
-    <div class="header-right">
-      <span class="header-site">sagitrading.com</span>
-      <button class="logout-btn" onclick="logout()">יציאה</button>
-    </div>
-  </header>
-
-  <!-- HERO -->
-  <section class="hero">
-    <div class="hero-eyebrow">SAGI TRADING PRO – אזור מנויים</div>
-    <h1>קורסי מסחר <em>מקצועיים</em></h1>
-    <p>מיסודות הטכני ועד מסחר מתקדם באופציות – כל הקורסים במקום אחד</p>
-    <div class="hero-stats">
-      <div class="hero-stat"><span class="val">12</span><span class="lbl">קורסים</span></div>
-      <div class="hero-stat"><span class="val">8</span><span class="lbl">אסטרטגיות אופציות</span></div>
-      <div class="hero-stat"><span class="val">30+</span><span class="lbl">דוגמאות</span></div>
-      <div class="hero-stat"><span class="val">100%</span><span class="lbl">עברית</span></div>
-    </div>
-  </section>
-
-  <!-- MAIN CONTENT -->
-  <div class="section">
-
-    <!-- NEW OPTIONS BANNER -->
-    <div class="new-banner">
-      <div>
-        <div class="nb-eyebrow">🆕 חדש – קורס אופציות</div>
-        <div class="nb-title">מסחר <span>באופציות</span> מאפס</div>
-        <div class="nb-desc">המדריך המקיף ביותר בעברית – 5 פרקים, 8 אסטרטגיות מלאות עם דוגמאות מספריות, היווניות, IV Crush וניהול סיכונים.</div>
-        <div class="nb-feats">
-          <span class="nb-feat">5 פרקים</span>
-          <span class="nb-feat">8 אסטרטגיות</span>
-          <span class="nb-feat">Greeks מלא</span>
-          <span class="nb-feat">IV Crush</span>
-          <span class="nb-feat">ניהול סיכונים</span>
-        </div>
-      </div>
-      <a href="options_course.html" class="nb-btn">פתח קורס אופציות ←</a>
-    </div>
-
-    <!-- SECTION HEADER -->
-    <div class="sec-label">כל הקורסים</div>
-    <div class="sec-title">ארגז הכלים המלא שלך</div>
-    <div class="sec-sub">לחץ על קורס כדי להיכנס</div>
-
-    <!-- GRID -->
-    <div class="grid">
-
-      <!-- OPTIONS COURSE -->
-      <div class="card">
-        <div class="card-thumb tnew">
-          <span style="position:relative;z-index:1">📈</span>
-          <div class="badge badge-new">חדש!</div>
-        </div>
-        <div class="card-body">
-          <div class="card-num">קורס אופציות</div>
-          <div class="card-title">מסחר באופציות מאפס</div>
-          <div class="card-desc">Call, Put, Greeks, IV Crush, 8 אסטרטגיות מלאות עם תרחישים מספריים – המדריך המקיף ביותר בעברית.</div>
-          <div class="card-tags"><span class="tag">Long Call/Put</span><span class="tag">Spreads</span><span class="tag">Iron Condor</span><span class="tag">Greeks</span></div>
-          <div class="card-footer">
-            <div class="card-meta">5 פרקים · 8 אסטרטגיות</div>
-            <a href="options_course.html" class="card-btn">פתח ←</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- MODULE 1 -->
-      <div class="card">
-        <div class="card-thumb t1">
-          <span style="position:relative;z-index:1">🧠</span>
-        </div>
-        <div class="card-body">
-          <div class="card-num">מודול 01</div>
-          <div class="card-title">מנטליות הסוחר המנצח</div>
-          <div class="card-desc">הבסיס הפסיכולוגי שבלעדיו כל אסטרטגיה תיכשל. משמעת, ניהול רגשות ומנטליות ארוכת טווח.</div>
-          <div class="card-tags"><span class="tag">פסיכולוגיה</span><span class="tag">משמעת</span><span class="tag">מנטליות</span></div>
-          <div class="card-footer">
-            <div class="card-meta">בסיס</div>
-            <a href="module1.html" class="card-btn card-btn-out">פתח</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- MODULE 2 -->
-      <div class="card">
-        <div class="card-thumb t2">
-          <span style="position:relative;z-index:1">💻</span>
-        </div>
-        <div class="card-body">
-          <div class="card-num">מודול 02</div>
-          <div class="card-title">תשתית טכנית</div>
-          <div class="card-desc">פלטפורמות, מסכים, אינטרנט ומחשבון. הגדרת סביבת עבודה מקצועית למסחר יומי.</div>
-          <div class="card-tags"><span class="tag">פלטפורמות</span><span class="tag">ציוד</span><span class="tag">הגדרה</span></div>
-          <div class="card-footer">
-            <div class="card-meta">טכני</div>
-            <a href="module2.html" class="card-btn card-btn-out">פתח</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- MODULE 3 -->
-      <div class="card">
-        <div class="card-thumb t3">
-          <span style="position:relative;z-index:1">🏦</span>
-        </div>
-        <div class="card-body">
-          <div class="card-num">מודול 03</div>
-          <div class="card-title">בחירת ברוקר</div>
-          <div class="card-desc">השוואה בין Interactive Brokers, Colmex Pro ועוד. עמלות, פלטפורמות ומה מתאים לך.</div>
-          <div class="card-tags"><span class="tag">IB</span><span class="tag">Colmex</span><span class="tag">עמלות</span></div>
-          <div class="card-footer">
-            <div class="card-meta">ברוקרים</div>
-            <a href="module3.html" class="card-btn card-btn-out">פתח</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- MODULE 4 -->
-      <div class="card">
-        <div class="card-thumb t4">
-          <span style="position:relative;z-index:1">📊</span>
-          <div class="badge badge-hot">חשוב</div>
-        </div>
-        <div class="card-body">
-          <div class="card-num">מודול 04</div>
-          <div class="card-title">ניתוח טכני</div>
-          <div class="card-desc">רמות תמיכה והתנגדות, מגמות, נרות יפניים ו-RSI. הכלים שכל סוחר חייב לשלוט בהם.</div>
-          <div class="card-tags"><span class="tag">Support/Resistance</span><span class="tag">RSI</span><span class="tag">נרות</span></div>
-          <div class="card-footer">
-            <div class="card-meta">ניתוח שוק</div>
-            <a href="module4.html" class="card-btn card-btn-out">פתח</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- MODULE 5 -->
-      <div class="card">
-        <div class="card-thumb t5">
-          <span style="position:relative;z-index:1">⚡</span>
-        </div>
-        <div class="card-body">
-          <div class="card-num">מודול 05</div>
-          <div class="card-title">אסטרטגיות מסחר</div>
-          <div class="card-desc">Breakout, Pullback, Gap & Go ועוד. כניסה, יציאה וניהול עסקה מלא לכל אסטרטגיה.</div>
-          <div class="card-tags"><span class="tag">Breakout</span><span class="tag">Pullback</span><span class="tag">Gap & Go</span></div>
-          <div class="card-footer">
-            <div class="card-meta">אסטרטגיות</div>
-            <a href="module5.html" class="card-btn card-btn-out">פתח</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- MODULE 6 -->
-      <div class="card">
-        <div class="card-thumb t6">
-          <span style="position:relative;z-index:1">🛡️</span>
-        </div>
-        <div class="card-body">
-          <div class="card-num">מודול 06</div>
-          <div class="card-title">ניהול סיכונים</div>
-          <div class="card-desc">Position Sizing, Stop Loss, R:R ratio. הדבר היחיד שמציל חשבון בטווח הארוך.</div>
-          <div class="card-tags"><span class="tag">Stop Loss</span><span class="tag">R:R</span><span class="tag">Sizing</span></div>
-          <div class="card-footer">
-            <div class="card-meta">ניהול הון</div>
-            <a href="module6.html" class="card-btn card-btn-out">פתח</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- MODULE 7 -->
-      <div class="card">
-        <div class="card-thumb t7">
-          <span style="position:relative;z-index:1">🧬</span>
-        </div>
-        <div class="card-body">
-          <div class="card-num">מודול 07</div>
-          <div class="card-title">פסיכולוגיה מתקדמת</div>
-          <div class="card-desc">FOMO, Revenge Trading, Overconfidence. האויבים הפנימיים שמרסקים חשבונות.</div>
-          <div class="card-tags"><span class="tag">FOMO</span><span class="tag">Discipline</span><span class="tag">מנטל</span></div>
-          <div class="card-footer">
-            <div class="card-meta">פסיכולוגיה</div>
-            <a href="module7.html" class="card-btn card-btn-out">פתח</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- MODULE 8 -->
-      <div class="card">
-        <div class="card-thumb t8">
-          <span style="position:relative;z-index:1">₿</span>
-        </div>
-        <div class="card-body">
-          <div class="card-num">מודול 08</div>
-          <div class="card-title">קריפטו ובלוקצ'יין</div>
-          <div class="card-desc">Bitcoin, Ethereum, DeFi. מסחר בקריפטו – הזדמנויות, סיכונים וכלי ניתוח ייעודיים.</div>
-          <div class="card-tags"><span class="tag">Bitcoin</span><span class="tag">Ethereum</span><span class="tag">DeFi</span></div>
-          <div class="card-footer">
-            <div class="card-meta">קריפטו</div>
-            <a href="module8.html" class="card-btn card-btn-out">פתח</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- MODULE 9 -->
-      <div class="card">
-        <div class="card-thumb t9">
-          <span style="position:relative;z-index:1">📋</span>
-        </div>
-        <div class="card-body">
-          <div class="card-num">מודול 09</div>
-          <div class="card-title">מיסוי ודיווח</div>
-          <div class="card-desc">מיסוי ניירות ערך בישראל, דוח 867, ניכוי מס במקור ועבודה נכונה מול רואה חשבון.</div>
-          <div class="card-tags"><span class="tag">מיסוי</span><span class="tag">דוח 867</span><span class="tag">ישראל</span></div>
-          <div class="card-footer">
-            <div class="card-meta">מיסוי</div>
-            <a href="module9.html" class="card-btn card-btn-out">פתח</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- MODULE 10 -->
-      <div class="card">
-        <div class="card-thumb t10">
-          <span style="position:relative;z-index:1">🔥</span>
-          <div class="badge badge-adv">מתקדם</div>
-        </div>
-        <div class="card-body">
-          <div class="card-num">מודול 10</div>
-          <div class="card-title">Scalping, Forex & עתידיים</div>
-          <div class="card-desc">מסחר מהיר, שוק המט"ח, חוזים עתידיים, זהב ומאקרו. המודול המתקדם ביותר בקורס.</div>
-          <div class="card-tags"><span class="tag">Scalping</span><span class="tag">Forex</span><span class="tag">Futures</span><span class="tag">זהב</span></div>
-          <div class="card-footer">
-            <div class="card-meta">מתקדם</div>
-            <a href="module10.html" class="card-btn card-btn-out">פתח</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- MODULE 11 -->
-      <div class="card">
-        <div class="card-thumb t11">
-          <span style="position:relative;z-index:1">🌐</span>
-        </div>
-        <div class="card-body">
-          <div class="card-num">מודול 11</div>
-          <div class="card-title">מאקרו וכלכלה גלובלית</div>
-          <div class="card-desc">ריביות Fed, אינפלציה, נתוני תעסוקה. איך חדשות כלכליות משפיעות על השוק ואיך לנצל זאת.</div>
-          <div class="card-tags"><span class="tag">Fed</span><span class="tag">אינפלציה</span><span class="tag">מאקרו</span></div>
-          <div class="card-footer">
-            <div class="card-meta">כלכלה</div>
-            <a href="module11.html" class="card-btn card-btn-out">פתח</a>
-          </div>
-        </div>
-      </div>
-
-    </div><!-- /grid -->
-  </div><!-- /section -->
-
-  <!-- FOOTER -->
-  <footer class="footer">
-    <strong>SAGI TRADING PRO</strong> &nbsp;|&nbsp; sagitrading.com &nbsp;|&nbsp;
-    כל הזכויות שמורות &nbsp;|&nbsp; המדריכים מיועדים לצרכי לימוד בלבד
-  </footer>
-
-</div><!-- /main-site -->
-
-<script>
-const PASS = 'SagiPro2025';
-
-function tryLogin(){
-  const v = document.getElementById('pw-input').value;
-  if(v === PASS){
-    document.getElementById('login-screen').style.display = 'none';
-    document.getElementById('main-site').style.display = 'block';
-    sessionStorage.setItem('sagi_auth','1');
-  } else {
-    document.getElementById('login-error').style.display = 'block';
-    document.getElementById('pw-input').value = '';
-    document.getElementById('pw-input').focus();
-  }
-}
-
-function logout(){
-  sessionStorage.removeItem('sagi_auth');
-  document.getElementById('main-site').style.display = 'none';
-  document.getElementById('login-screen').style.display = 'flex';
-  document.getElementById('pw-input').value = '';
-}
-
-// auto-login if already authed this session
-if(sessionStorage.getItem('sagi_auth') === '1'){
-  document.getElementById('login-screen').style.display = 'none';
-  document.getElementById('main-site').style.display = 'block';
-}
-</script>
-</body>
-</html>
+12
+קורסים
+8
+אסטרטגיות אופציות
+30+
+דוגמאות
+100%
+עברית
+🆕 חדש – קורס אופציות
+מסחר באופציות מאפס
+המדריך המקיף ביותר בעברית – 5 פרקים, 8 אסטרטגיות מלאות עם דוגמאות מספריות, היווניות, IV Crush וניהול סיכונים.
+5 פרקים
+8 אסטרטגיות
+Greeks מלא
+IV Crush
+ניהול סיכונים
+פתח קורס אופציות ←
+כל הקורסים
+ארגז הכלים המלא שלך
+לחץ על קורס כדי להיכנס
+📈
+חדש!
+קורס אופציות
+מסחר באופציות מאפס
+Call, Put, Greeks, IV Crush, 8 אסטרטגיות מלאות עם תרחישים מספריים – המדריך המקיף ביותר בעברית.
+Long Call/Put
+Spreads
+Iron Condor
+Greeks
+5 פרקים · 8 אסטרטגיות
+פתח ←
+🧠
+מודול 01
+מנטליות הסוחר המנצח
+הבסיס הפסיכולוגי שבלעדיו כל אסטרטגיה תיכשל. משמעת, ניהול רגשות ומנטליות ארוכת טווח.
+פסיכולוגיה
+משמעת
+מנטליות
+בסיס
+פתח
+💻
+מודול 02
+תשתית טכנית
+פלטפורמות, מסכים, אינטרנט ומחשבון. הגדרת סביבת עבודה מקצועית למסחר יומי.
+פלטפורמות
+ציוד
+הגדרה
+טכני
+פתח
+🏦
+מודול 03
+בחירת ברוקר
+השוואה בין Interactive Brokers, Colmex Pro ועוד. עמלות, פלטפורמות ומה מתאים לך.
+IB
+Colmex
+עמלות
+ברוקרים
+פתח
+📊
+חשוב
+מודול 04
+ניתוח טכני
+רמות תמיכה והתנגדות, מגמות, נרות יפניים ו-RSI. הכלים שכל סוחר חייב לשלוט בהם.
+Support/Resistance
+RSI
+נרות
+ניתוח שוק
+פתח
+⚡
+מודול 05
+אסטרטגיות מסחר
+Breakout, Pullback, Gap & Go ועוד. כניסה, יציאה וניהול עסקה מלא לכל אסטרטגיה.
+Breakout
+Pullback
+Gap & Go
+אסטרטגיות
+פתח
+🛡️
+מודול 06
+ניהול סיכונים
+Position Sizing, Stop Loss, R:R ratio. הדבר היחיד שמציל חשבון בטווח הארוך.
+Stop Loss
+R:R
+Sizing
+ניהול הון
+פתח
+🧬
+מודול 07
+פסיכולוגיה מתקדמת
+FOMO, Revenge Trading, Overconfidence. האויבים הפנימיים שמרסקים חשבונות.
+FOMO
+Discipline
+מנטל
+פסיכולוגיה
+פתח
+₿
+מודול 08
+קריפטו ובלוקצ'יין
+Bitcoin, Ethereum, DeFi. מסחר בקריפטו – הזדמנויות, סיכונים וכלי ניתוח ייעודיים.
+Bitcoin
+Ethereum
+DeFi
+קריפטו
+פתח
+📋
+מודול 09
+מיסוי ודיווח
+מיסוי ניירות ערך בישראל, דוח 867, ניכוי מס במקור ועבודה נכונה מול רואה חשבון.
+מיסוי
+דוח 867
+ישראל
+מיסוי
+פתח
+🔥
+מתקדם
+מודול 10
+Scalping, Forex & עתידיים
+מסחר מהיר, שוק המט"ח, חוזים עתידיים, זהב ומאקרו. המודול המתקדם ביותר בקורס.
+Scalping
+Forex
+Futures
+זהב
+מתקדם
+פתח
+🌐
+מודול 11
+מאקרו וכלכלה גלובלית
+ריביות Fed, אינפלציה, נתוני תעסוקה. איך חדשות כלכליות משפיעות על השוק ואיך לנצל זאת.
+Fed
+אינפלציה
+מאקרו
+כלכלה
+פתח
+SAGI TRADING PRO  |  sagitrading.com  |  כל הזכויות שמורות  |  המדריכים מיועדים לצרכי לימוד בלבד
